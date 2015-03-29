@@ -1,5 +1,8 @@
 # letter-flicker
-Flicks letters!
+I needed to flicker letters in a glitchy-type fashion for a project of mine -
+so I wrote a module!
+
+See it in action [on gh-pages](http://ralphsaunders.github.io/letter-flicker/).
 
 ## Quickstart
 
