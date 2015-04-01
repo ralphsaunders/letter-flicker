@@ -55,16 +55,16 @@ var letterFlicker = (function(config) {
         this.frames --;
 
         if(this.nextIsLess) {
-            this.element.innerText = randomString(getRandomInt(this.nextWord.length, this.currentWord.length));
+            this.element.textContent = randomString(getRandomInt(this.nextWord.length, this.currentWord.length));
         } else {
-            this.element.innerText = randomString(getRandomInt(this.currentWord.length, this.nextWord.length));
+            this.element.textContent = randomString(getRandomInt(this.currentWord.length, this.nextWord.length));
         }
 
         if(this.frames > 0) {
             this.animationFrame = requestAnimationFrame(loop.bind(this));
         } else {
             cancelAnimationFrame(this.animationFrame);
-            this.element.innerText = this.nextWord;
+            this.element.textContent = this.nextWord;
             this.cb();
         }
     };
@@ -78,12 +78,12 @@ var letterFlicker = (function(config) {
 
     // Word pool
     this.words = config.words;
-    this.words.push(this.element.innerText);
+    this.words.push(this.element.textContent);
 
     // Current word should always refer to the word that was in the DOM prior
     // to mutation. By default we're taking the value of the element we're
     // mutating
-    this.currentWord = this.element.innerText;
+    this.currentWord = this.element.textContent;
 
     // Grace period between mutations defined in ms
     this.rest = config.rest || 2000;
@@ -129,7 +129,7 @@ var letterFlicker = (function(config) {
      */
     this.init = function init() {
         this.generateIteration(function() {
-            this.currentWord = this.element.innerText;
+            this.currentWord = this.element.textContent;
             setTimeout(function() {
                 this.init();
             }.bind(this), this.rest);
